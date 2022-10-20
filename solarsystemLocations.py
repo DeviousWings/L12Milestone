@@ -21,23 +21,21 @@ now    = datetime.datetime.now()
 year   = now.year
 month  = now.month
 day    = now.day
-# # nameOfDay = now.strftime()
+# nameOfDay = now.strftime()
 hour   = now.hour
 minute = now.minute
-# As this is UTC time we set UT to 0
-UT  = 0
+
 # if (datetime.datetime.now(datetime.timezone.utc).dst())==None:
 #     dst=0
 # else:
 #     dst=1
 dst = 0
 
-print(f"{now:%a, %d %b %Y}, {hour}:{minute}, {UT}, {dst}")
+print(f"{now:%a, %d %b %Y}, {hour}:{minute}")
 
 # planet position output be in horizontal coordinates (longitude, latitude, distance from sun in AU)
 view='horizontal'
-H = solarsystem.Heliocentric(year=year, month=month, day=day, hour=hour, minute=minute, 
-                         UT=UT, dst=dst, view=view )
+H = solarsystem.Heliocentric(year=year, month=month, day=day, hour=hour, minute=minute, dst=dst, view=view )
 
 planets=H.planets()
 distances=[]
